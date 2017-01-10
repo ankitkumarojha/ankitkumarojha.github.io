@@ -19,14 +19,19 @@
     <header>
       <div class="inner">
         <a href="{{ '/' | absolute_url }}">
-          <h1>Ankit Kumar Ojha</h1>
+          <font size="5">{{ default: site.title | site.github.repository_name }}</font>
         </a>
-        <h2>It's all about the efficiency. The endeavour to reach O(1).</h2>
+        {% if site.github.is_user_page %}
+         <h2>It's all about the efficiency. The endeavour to reach O(1)</h2>
+        {% endif %}
+	{% if site.github.is_project_page %}
+          <h2>{{default: site.description | site.github.project_tagline}}</h2>
+        {% endif %}
         {% if site.github.is_project_page %}
           <a href="{{ site.github.repository_url }}" class="button"><small>View project on</small> GitHub</a>
         {% endif %}
         {% if site.github.is_user_page %}
-          <a href="{{ site.github.repository_url }}" class="button"><small>Follow me on</small> GitHub</a>
+          <a href="{{ site.github.url }}" class="button"><small>Follow me on</small> GitHub</a>
         {% endif %}
       </div>
     </header>
